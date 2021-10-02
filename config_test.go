@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"gotest.tools/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 const TEST_CONFIG_NAME = "test_config.ini"
@@ -179,7 +179,7 @@ func Test_loadConfig(t *testing.T) {
 	assert.Equal(t, err, nil)
 
 	_, err = loadConfig().GetSection("test1")
-	assert.Error(t, err, err.Error())
+	assert.NotEqual(t, err, nil)
 }
 
 func Test_getConfigFolderPath(t *testing.T) {
